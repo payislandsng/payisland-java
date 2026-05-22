@@ -1,4 +1,4 @@
-package com.payisland.resources;
+package com.payislands.resources;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

@@ -1,4 +1,4 @@
-package com.payisland;
+package com.payislands;
 
 import java.time.Duration;
 import java.util.Objects;

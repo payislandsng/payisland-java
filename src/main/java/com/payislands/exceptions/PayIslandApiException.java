@@ -1,4 +1,4 @@
-package com.payisland.exceptions;
+package com.payislands.exceptions;
 
 import java.util.Map;
 

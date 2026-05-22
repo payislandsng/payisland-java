@@ -8,7 +8,7 @@ Add the SDK to your Maven project:
 
 ```xml
 <dependency>
-    <groupId>com.payisland</groupId>
+    <groupId>com.payislands</groupId>
     <artifactId>payisland-java</artifactId>
     <version>0.1.0</version>
 </dependency>
@@ -19,7 +19,7 @@ The SDK requires Java 11 or later.
 ## Initialization
 
 ```java
-import com.payisland.PayIsland;
+import com.payislands.PayIsland;
 
 PayIsland payIsland = new PayIsland("test_secret_key");
 ```
@@ -27,8 +27,8 @@ PayIsland payIsland = new PayIsland("test_secret_key");
 You can override the base URL for tests:
 
 ```java
-import com.payisland.PayIsland;
-import com.payisland.PayIslandConfig;
+import com.payislands.PayIsland;
+import com.payislands.PayIslandConfig;
 
 PayIslandConfig config = new PayIslandConfig("test_secret_key", "http://localhost:8080");
 PayIsland payIsland = new PayIsland(config);
@@ -39,7 +39,7 @@ PayIsland does not require a sandbox/live environment flag. The PayIsland backen
 ## Transaction Initialization
 
 ```java
-import com.payisland.PayIsland;
+import com.payislands.PayIsland;
 
 import java.util.Map;
 
@@ -88,7 +88,7 @@ Always verify the webhook signature before trusting the payload. Before fulfilli
 API errors throw `PayIslandApiException`.
 
 ```java
-import com.payisland.exceptions.PayIslandApiException;
+import com.payislands.exceptions.PayIslandApiException;
 
 try {
     payIsland.transactions().verify("order_123");
@@ -101,25 +101,25 @@ try {
 
 ## Examples
 
-The runnable examples live in `src/test/java/com/payisland/examples` so Maven can compile them onto the test classpath.
+The runnable examples live in `src/test/java/com/payislands/examples` so Maven can compile them onto the test classpath.
 On a clean checkout, run `mvn test-compile` once before using `exec:java`, or run these commands after `mvn test` or `mvn package`.
 
 Initialize a payment:
 
 ```bash
-mvn exec:java -Dexec.mainClass="com.payisland.examples.InitializePaymentExample" -Dexec.classpathScope=test
+mvn exec:java -Dexec.mainClass="com.payislands.examples.InitializePaymentExample" -Dexec.classpathScope=test
 ```
 
 Verify a payment:
 
 ```bash
-mvn exec:java -Dexec.mainClass="com.payisland.examples.VerifyPaymentExample" -Dexec.args="<reference>" -Dexec.classpathScope=test
+mvn exec:java -Dexec.mainClass="com.payislands.examples.VerifyPaymentExample" -Dexec.args="<reference>" -Dexec.classpathScope=test
 ```
 
 Verify a webhook signature:
 
 ```bash
-mvn exec:java -Dexec.mainClass="com.payisland.examples.WebhookVerificationExample" -Dexec.classpathScope=test
+mvn exec:java -Dexec.mainClass="com.payislands.examples.WebhookVerificationExample" -Dexec.classpathScope=test
 ```
 
 ## Development Commands

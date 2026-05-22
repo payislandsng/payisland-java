@@ -1,6 +1,6 @@
-package com.payisland.examples;
+package com.payislands.examples;
 
-import com.payisland.PayIsland;
+import com.payislands.PayIsland;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

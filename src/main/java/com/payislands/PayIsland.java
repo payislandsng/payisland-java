@@ -1,8 +1,8 @@
-package com.payisland;
+package com.payislands;
 
-import com.payisland.resources.TransactionsResource;
-import com.payisland.resources.WebhooksResource;
-import com.payisland.support.HttpClient;
+import com.payislands.resources.TransactionsResource;
+import com.payislands.resources.WebhooksResource;
+import com.payislands.support.HttpClient;
 
 public class PayIsland {
     private final PayIslandConfig config;

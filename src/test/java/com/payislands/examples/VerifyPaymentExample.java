@@ -1,15 +1,15 @@
-package com.payisland.examples;
+package com.payislands.examples;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.payisland.PayIsland;
+import com.payislands.PayIsland;
 
 import java.util.Map;
 
 public class VerifyPaymentExample {
     public static void main(String[] args) throws Exception {
         if (args.length == 0 || args[0].trim().isEmpty()) {
-            System.err.println("Usage: mvn exec:java -Dexec.mainClass=\"com.payisland.examples.VerifyPaymentExample\" -Dexec.args=\"<reference>\" -Dexec.classpathScope=test");
+            System.err.println("Usage: mvn exec:java -Dexec.mainClass=\"com.payislands.examples.VerifyPaymentExample\" -Dexec.args=\"<reference>\" -Dexec.classpathScope=test");
             return;
         }
 

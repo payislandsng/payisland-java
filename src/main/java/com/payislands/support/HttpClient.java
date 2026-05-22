@@ -1,10 +1,10 @@
-package com.payisland.support;
+package com.payislands.support;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.payisland.PayIslandConfig;
-import com.payisland.exceptions.PayIslandApiException;
+import com.payislands.PayIslandConfig;
+import com.payislands.exceptions.PayIslandApiException;
 
 import java.io.IOException;
 import java.net.URI;

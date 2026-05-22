@@ -1,6 +1,6 @@
-package com.payisland;
+package com.payislands;
 
-import com.payisland.resources.WebhooksResource;
+import com.payislands.resources.WebhooksResource;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.Mac;

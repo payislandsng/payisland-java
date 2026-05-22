@@ -1,4 +1,4 @@
-package com.payisland;
+package com.payislands;
 
 import org.junit.jupiter.api.Test;
 

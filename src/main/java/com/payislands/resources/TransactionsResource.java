@@ -1,6 +1,6 @@
-package com.payisland.resources;
+package com.payislands.resources;
 
-import com.payisland.support.HttpClient;
+import com.payislands.support.HttpClient;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;

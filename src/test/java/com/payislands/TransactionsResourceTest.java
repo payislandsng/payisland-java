@@ -1,6 +1,6 @@
-package com.payisland;
+package com.payislands;
 
-import com.payisland.exceptions.PayIslandApiException;
+import com.payislands.exceptions.PayIslandApiException;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import okhttp3.mockwebserver.RecordedRequest;
