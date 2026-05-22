@@ -1,3 +1,5 @@
+package com.payisland.examples;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.payisland.PayIsland;
@@ -7,22 +9,24 @@ import java.util.Map;
 public class VerifyPaymentExample {
     public static void main(String[] args) throws Exception {
         if (args.length == 0 || args[0].trim().isEmpty()) {
-            throw new IllegalArgumentException("Usage: VerifyPaymentExample <transaction_reference>");
+            System.err.println("Usage: mvn exec:java -Dexec.mainClass=\"com.payisland.examples.VerifyPaymentExample\" -Dexec.args=\"<reference>\" -Dexec.classpathScope=test");
+            return;
         }
 
-        String secretKey = requireEnv("PAYISLAND_SECRET_KEY");
-        PayIsland payIsland = new PayIsland(secretKey);
+        String secretKey = env("PAYISLAND_SECRET_KEY");
+        if (secretKey == null) {
+            System.err.println("Missing required environment variable: PAYISLAND_SECRET_KEY");
+            return;
+        }
 
+        PayIsland payIsland = new PayIsland(secretKey);
         Map<String, Object> response = payIsland.transactions().verify(args[0]);
         ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         System.out.println(objectMapper.writeValueAsString(response));
     }
 
-    private static String requireEnv(String name) {
+    private static String env(String name) {
         String value = System.getenv(name);
-        if (value == null || value.trim().isEmpty()) {
-            throw new IllegalStateException(name + " environment variable is required");
-        }
-        return value;
+        return value == null || value.trim().isEmpty() ? null : value.trim();
     }
 }

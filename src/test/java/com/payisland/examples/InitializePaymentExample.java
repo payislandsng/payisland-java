@@ -1,11 +1,19 @@
+package com.payisland.examples;
+
 import com.payisland.PayIsland;
 
 import java.util.Map;
 
 public class InitializePaymentExample {
     public static void main(String[] args) {
-        String secretKey = requireEnv("PAYISLAND_SECRET_KEY");
-        String paymentItemId = requireEnv("PAYISLAND_PAYMENT_ITEM_ID");
+        String secretKey = env("PAYISLAND_SECRET_KEY");
+        String paymentItemId = env("PAYISLAND_PAYMENT_ITEM_ID");
+
+        if (secretKey == null || paymentItemId == null) {
+            System.err.println("Missing required environment variables.");
+            System.err.println("Set PAYISLAND_SECRET_KEY and PAYISLAND_PAYMENT_ITEM_ID, then try again.");
+            return;
+        }
 
         PayIsland payIsland = new PayIsland(secretKey);
         Map<String, Object> response = payIsland.transactions().initialize(Map.of(
@@ -30,12 +38,9 @@ public class InitializePaymentExample {
         }
     }
 
-    private static String requireEnv(String name) {
+    private static String env(String name) {
         String value = System.getenv(name);
-        if (value == null || value.trim().isEmpty()) {
-            throw new IllegalStateException(name + " environment variable is required");
-        }
-        return value;
+        return value == null || value.trim().isEmpty() ? null : value.trim();
     }
 
     @SuppressWarnings("unchecked")

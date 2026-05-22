@@ -101,11 +101,26 @@ try {
 
 ## Examples
 
-See the `examples/` directory:
+The runnable examples live in `src/test/java/com/payisland/examples` so Maven can compile them onto the test classpath.
+On a clean checkout, run `mvn test-compile` once before using `exec:java`, or run these commands after `mvn test` or `mvn package`.
 
-- `InitializePaymentExample.java`
-- `VerifyPaymentExample.java`
-- `WebhookVerificationExample.java`
+Initialize a payment:
+
+```bash
+mvn exec:java -Dexec.mainClass="com.payisland.examples.InitializePaymentExample" -Dexec.classpathScope=test
+```
+
+Verify a payment:
+
+```bash
+mvn exec:java -Dexec.mainClass="com.payisland.examples.VerifyPaymentExample" -Dexec.args="<reference>" -Dexec.classpathScope=test
+```
+
+Verify a webhook signature:
+
+```bash
+mvn exec:java -Dexec.mainClass="com.payisland.examples.WebhookVerificationExample" -Dexec.classpathScope=test
+```
 
 ## Development Commands
 
