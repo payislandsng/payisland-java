@@ -129,6 +129,36 @@ mvn test
 mvn package
 ```
 
+## Publishing to Maven Central
+
+Run the local release checks:
+
+```bash
+mvn clean verify
+```
+
+Publish through the Sonatype Central Portal release profile:
+
+```bash
+mvn clean deploy -P release
+```
+
+Before deploying, configure `~/.m2/settings.xml` with Central Portal token credentials using the server id `central`. Generate the token in the Central Portal, then add it as a Maven server entry:
+
+```xml
+<settings>
+  <servers>
+    <server>
+      <id>central</id>
+      <username>your_token_username</username>
+      <password>your_token_password</password>
+    </server>
+  </servers>
+</settings>
+```
+
+Do not commit real credentials. The release profile signs artifacts with GPG and publishes the deployment bundle to the Central Portal for validation.
+
 ## License
 
 MIT
