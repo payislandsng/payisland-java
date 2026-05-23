@@ -1,5 +1,7 @@
 # PayIsland Java SDK
 
+![CI](https://github.com/payislandsng/payisland-java/actions/workflows/ci.yml/badge.svg)
+
 Official Java SDK for integrating with PayIsland payment APIs.
 
 ## Installation
